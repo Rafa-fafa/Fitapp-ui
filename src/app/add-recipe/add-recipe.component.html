@@ -1,0 +1,17 @@
+<div class="example-container" [class.mat-elevation-z3]="true">
+  <div style="margin:10px; display: grid">
+    <mat-form-field>
+      <input matInput placeholder="Title">
+    </mat-form-field>
+
+    <mat-form-field>
+        <textarea style="height: 250px" matInput placeholder="Description"></textarea>
+    </mat-form-field>
+
+    <mat-form-field style="width: 80px" >
+      <mat-select style="text-align: center" placeholder="Portions">
+        <mat-option *ngFor="let portion of portions" [value]="portion">{{portion}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>

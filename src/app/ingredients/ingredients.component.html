@@ -1,0 +1,32 @@
+<div class="example-container" [class.mat-elevation-z3]="true">
+  <div style="margin-left:10px; display: flex ; font-size: 12px">
+
+    <div style="max-width: 50px; margin-left: 3px; margin-right: 3px">
+      <mat-form-field [floatLabel]="'never'">
+        <input matInput placeholder="Amount">
+      </mat-form-field>
+    </div>
+    <div style="max-width: 45px; margin-left: 3px; margin-right: 3px">
+      <mat-form-field [floatLabel]="'never'">
+        <mat-select placeholder="Unit">
+          <mat-option *ngFor="let unit of units" [value]="unit">
+            {{unit}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div style="width: 65%; min-width: 0px; margin-left: 3px; margin-right: 3px">
+      <mat-form-field [floatLabel]="'never'">
+        <input matInput placeholder="Ingredient">
+      </mat-form-field>
+    </div>
+
+  </div>
+
+  <div style="margin: 0 0 10px 20px">
+    <button (click)="addNewIngredient()" mat-icon-button color="primary">
+    <mat-icon>add_box</mat-icon>
+  </button>
+  </div>
+</div>
+
