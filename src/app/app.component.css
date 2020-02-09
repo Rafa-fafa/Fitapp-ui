@@ -1,4 +1,9 @@
 .mat-drawer-container{
-  height:500px;
+  height:600px;
   background-color: white;
+}
+
+.saveButton{
+  position: absolute;
+  right: 20px;
 }

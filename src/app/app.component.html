@@ -4,12 +4,17 @@
     <app-side-nav-list></app-side-nav-list>
   </mat-drawer>
   <mat-drawer-content>
-    <mat-grid-list cols="5" rowHeight="500px">
-      <mat-grid-tile [colspan]="3" [rowspan]="1">
+    <mat-grid-list cols="5" rowHeight="50px">
+      <mat-grid-tile [colspan]="3" [rowspan]="10">
         <app-add-recipe></app-add-recipe>
       </mat-grid-tile>
-      <mat-grid-tile [colspan]="2" [rowspan]="1">
+      <mat-grid-tile [colspan]="2" [rowspan]="10">
         <app-ingredients></app-ingredients>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="3" [rowspan]="1">
+        <div class="saveButton">
+          <button mat-raised-button color="primary">Save recipe</button>
+        </div>
       </mat-grid-tile>
     </mat-grid-list>
   </mat-drawer-content>

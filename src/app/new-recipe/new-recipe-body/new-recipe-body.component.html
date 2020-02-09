@@ -1,0 +1,22 @@
+<div class="example-container" [class.mat-elevation-z3]="true">
+  <form class="example-form">
+    <div style="margin:10px; display: grid">
+      <mat-form-field>
+        <input matInput [(ngModel)]="recipe.title" placeholder="Title">
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <textarea style="height: 250px" matInput [(ngModel)]="recipe.description" placeholder="Description"></textarea>
+      </mat-form-field>
+
+      <mat-form-field style="width: 80px">
+        <mat-select style="text-align: center" [(ngModel)]="recipe.numberOfPortion" placeholder="Portions">
+          <mat-option *ngFor="let portion of portions" [value]="portion">{{portion}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </form>
+</div>
