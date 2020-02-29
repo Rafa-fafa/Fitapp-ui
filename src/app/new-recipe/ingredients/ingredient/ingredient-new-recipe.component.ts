@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Ingredient} from "../../../model/ingredient";
+import {FormControl, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-ingredient-new-recipe',
@@ -12,11 +13,13 @@ export class IngredientNewRecipeComponent implements OnInit {
   @Input()
   newIngredient: Ingredient;
 
-
   constructor() {
   }
 
   ngOnInit() {
   }
 
+  ingredientIsRequired = new FormControl('', [
+    Validators.required,
+  ]);
 }

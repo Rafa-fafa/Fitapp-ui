@@ -1,6 +1,6 @@
 import {Ingredient} from "./ingredient";
 
-export class Recipe {
+export class RecipeDsp {
   constructor(
     public title?:string,
     public description?:string,

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Ingredient} from "../../model/ingredient";
-import {Recipe} from "../../model/recipe";
+import {RecipeDsp} from "../../model/recipeDsp";
 import {NewRecipeService} from "../new-recipe.service";
 import {FormControl, Validators} from "@angular/forms";
 
@@ -11,7 +11,10 @@ import {FormControl, Validators} from "@angular/forms";
 })
 export class NewRecipeBodyComponent implements OnInit {
 
-  recipe: Recipe;
+  titleIsRequired = new FormControl('', [Validators.required]);
+  descriptionIsRequired = new FormControl('', [Validators.required]);
+  portionsIsRequired = new FormControl('', [Validators.pattern("[0-9]+")  ]);
+  recipe: RecipeDsp;
 
   constructor(private newRecipeService: NewRecipeService) {
   }
@@ -20,13 +23,8 @@ export class NewRecipeBodyComponent implements OnInit {
     this.newRecipeService.currentRecipe.subscribe(recipe => this.recipe = recipe);
   }
 
-  emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
-
   get portions() {
-    const portions: number[] = [];
+    const portions: any[] = [];
     for (let i = 1; i < 16; i++) {
       portions.push(i);
     }

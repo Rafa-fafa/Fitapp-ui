@@ -1,21 +1,28 @@
 <div class="example-container" [class.mat-elevation-z3]="true">
-  <form class="example-form">
+  <form>
     <div style="margin:10px; display: grid">
+
       <mat-form-field>
-        <input matInput [(ngModel)]="recipe.title" placeholder="Title">
-        <mat-error *ngIf="emailFormControl.hasError('required')">
-          Email is <strong>required</strong>
+        <input matInput [formControl]="titleIsRequired" [(ngModel)]="recipe.title" placeholder="Title">
+        <mat-error *ngIf="titleIsRequired.hasError('required')">
+          Title is required
         </mat-error>
       </mat-form-field>
 
       <mat-form-field>
-        <textarea style="height: 250px" matInput [(ngModel)]="recipe.description" placeholder="Description"></textarea>
+        <textarea style="height: 250px; text-align: justify;" matInput [formControl]="descriptionIsRequired" [(ngModel)]="recipe.description" placeholder="Description"></textarea>
+        <mat-error *ngIf="descriptionIsRequired.hasError('required')">
+          Description is required
+        </mat-error>
       </mat-form-field>
 
-      <mat-form-field style="width: 80px">
-        <mat-select style="text-align: center" [(ngModel)]="recipe.numberOfPortion" placeholder="Portions">
+      <mat-form-field style="width: 150px">
+        <mat-select style="text-align: center" [formControl]="portionsIsRequired"  [(ngModel)]="recipe.numberOfPortion" placeholder="Portions">
           <mat-option *ngFor="let portion of portions" [value]="portion">{{portion}}</mat-option>
         </mat-select>
+        <mat-error *ngIf="portionsIsRequired.hasError('pattern')">
+          Must be a number
+        </mat-error>
       </mat-form-field>
     </div>
   </form>

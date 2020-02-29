@@ -20,8 +20,10 @@ import {IngredientsNewRecipeComponent} from './new-recipe/ingredients/ingredient
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatButtonModule} from "@angular/material/button";
 import {IngredientNewRecipeComponent} from './new-recipe/ingredients/ingredient/ingredient-new-recipe.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { DownloadRecipeComponent } from './new-recipe/download-recipe/download-recipe.component';
+import {MatExpansionModule} from "@angular/material/expansion";
 
 @NgModule({
   declarations: [
@@ -30,26 +32,29 @@ import {HttpClientModule} from "@angular/common/http";
     SideNavListComponent,
     NewRecipeBodyComponent,
     IngredientsNewRecipeComponent,
-    IngredientNewRecipeComponent
+    IngredientNewRecipeComponent,
+    DownloadRecipeComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatSliderModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatSidenavModule,
-    MatListModule,
-    MatFormFieldModule,
-    MatOptionModule,
-    MatSelectModule,
-    MatInputModule,
-    MatGridListModule,
-    MatButtonModule,
-    FormsModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatSliderModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatSidenavModule,
+        MatListModule,
+        MatFormFieldModule,
+        MatOptionModule,
+        MatSelectModule,
+        MatInputModule,
+        MatGridListModule,
+        MatButtonModule,
+        FormsModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        MatExpansionModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

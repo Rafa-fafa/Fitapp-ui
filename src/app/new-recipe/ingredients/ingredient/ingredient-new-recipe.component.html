@@ -1,21 +1,25 @@
-<div style="margin-left:10px; display: flex ; font-size: 12px">
-  <div style="max-width: 50px; margin-left: 3px; margin-right: 3px">
-    <mat-form-field [floatLabel]="'never'">
-      <input style="text-align: center" matInput [(ngModel)]="newIngredient.amount" placeholder="Amount" [value]="newIngredient.amount">
-    </mat-form-field>
+  <div style="margin-left:10px; display: flex ; font-size: 12px">
+    <div style="max-width: 50px; margin-left: 3px; margin-right: 3px">
+      <mat-form-field [floatLabel]="'never'">
+        <input style="text-align: center" matInput [(ngModel)]="newIngredient.amount" placeholder="Amount"
+               [value]="newIngredient.amount">
+      </mat-form-field>
+    </div>
+    <div style="max-width: 45px; margin-left: 3px; margin-right: 3px">
+      <mat-form-field [floatLabel]="'never'">
+        <mat-select style="text-align: center" placeholder="Unit" [(ngModel)]="newIngredient.unit">
+          <mat-option *ngFor="let unit of units" [value]="unit">
+            {{unit}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div style="width: 65%; min-width: 0px; margin-left: 3px; margin-right: 3px">
+      <mat-form-field>
+        <input matInput [formControl]="ingredientIsRequired" [(ngModel)]="newIngredient.name" placeholder="Ingredient">
+        <mat-error *ngIf="ingredientIsRequired.hasError('required')">
+          Ingredient is required
+        </mat-error>
+      </mat-form-field>
+    </div>
   </div>
-  <div style="max-width: 45px; margin-left: 3px; margin-right: 3px">
-    <mat-form-field [floatLabel]="'never'">
-      <mat-select style="text-align: center" placeholder="Unit" [(ngModel)]="newIngredient.unit" [value]="newIngredient.unit">
-        <mat-option *ngFor="let unit of units" [value]="unit">
-          {{unit}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
-  <div style="width: 65%; min-width: 0px; margin-left: 3px; margin-right: 3px">
-    <mat-form-field [floatLabel]="'never'">
-      <input matInput placeholder="Ingredient" [(ngModel)]="newIngredient.name" [value]="newIngredient.name">
-    </mat-form-field>
-  </div>
-</div>

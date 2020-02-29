@@ -1,9 +1,14 @@
-.mat-drawer-container{
-  height:600px;
+.mat-drawer-container {
+  height: auto;
   background-color: white;
 }
 
-.saveButton{
+.saveButton {
   position: absolute;
   right: 20px;
+}
+
+::ng-deep .mat-grid-tile .mat-figure {
+  align-items: flex-start !important;
+  display: block !important;
 }

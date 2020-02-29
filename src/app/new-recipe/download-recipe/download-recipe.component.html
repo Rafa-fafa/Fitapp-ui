@@ -1,0 +1,21 @@
+<mat-accordion class="example-container" [class.mat-elevation-z3]="true">
+  <mat-expansion-panel style="border-radius: 10px">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Download external recipe
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <mat-form-field style="width: 100%">
+      <mat-label>Paste URL</mat-label>
+      <label>
+        <input matInput [(ngModel)]="url">
+      </label>
+    </mat-form-field>
+    <div class="saveButton">
+      <button mat-raised-button (click)="downloadRecipe()" color="primary">Download recipe</button>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+
+
