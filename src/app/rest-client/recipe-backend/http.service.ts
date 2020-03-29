@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {RecipeDsp} from "../../model/recipeDsp";
 
@@ -16,15 +16,20 @@ export class HttpService {
   constructor(private http: HttpClient) {
   }
 
-  public getRecipes() {
-    return this.http.get( this.API_URL + this.ALL_RECIPES_URL);
+  public getRecipes(): Observable<any> {
+    return this.http.get(this.API_URL + this.ALL_RECIPES_URL);
   }
 
   public saveRecipe(recipe): Observable<RecipeDsp> {
-    return this.http.post<RecipeDsp>(this.API_URL + this.ALL_RECIPES_URL, recipe);
+    return this.http.post<RecipeDsp>(this.API_URL + this.SINGLE_RECIPE_URL, recipe);
   }
-  public downloadRecipe(scrapUrl): Observable<RecipeDsp> {
-    let data = {url:scrapUrl};
-    return this.http.get(this.SCRAP_URL + this.SINGLE_RECIPE_URL, {params:data} );
+
+  public downloadRecipe(scrapUrl): Observable<any> {
+    let data = {url: scrapUrl};
+    return this.http.get(this.SCRAP_URL + this.SINGLE_RECIPE_URL, {params: data});
+  }
+
+  public deleteRecipe(recipeId: number) {
+    return this.http.delete(this.API_URL + this.SINGLE_RECIPE_URL+"/"+recipeId);
   }
 }

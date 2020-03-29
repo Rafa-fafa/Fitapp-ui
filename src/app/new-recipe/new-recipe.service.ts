@@ -1,35 +1,27 @@
-import {Injectable, OnInit} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {BehaviorSubject} from "rxjs";
 import {RecipeDsp} from "../model/recipeDsp";
-import {Ingredient} from "../model/ingredient";
-import {stringify} from "querystring";
 import {HttpService} from "../rest-client/recipe-backend/http.service";
+import {Ingredient} from "../model/ingredient";
 
 @Injectable({
   providedIn: 'root'
 })
-export class NewRecipeService implements OnInit{
+export class NewRecipeService {
 
   private recipeSource = new BehaviorSubject<RecipeDsp>(this.getEmptyRecipe());
-  currentRecipe = this.recipeSource.asObservable();
-  private recipes: Object;
+  newRecipe = this.recipeSource.asObservable();
 
-  constructor(private recipeService: HttpService) {
-  }
-
-  ngOnInit(): void {
-    this.recipeService.getRecipes().subscribe(recipes => this.recipes = recipes);
+  constructor() {
   }
 
   changeRecipe(recipe: RecipeDsp) {
     this.recipeSource.next(recipe);
   }
 
-  saveRecipe(){
-    this.recipeService.saveRecipe(this.recipeSource.value);
-  }
-
-  getEmptyRecipe(): RecipeDsp{
-    return new RecipeDsp("","",null,[]);
+  getEmptyRecipe(): RecipeDsp {
+    let recipe: RecipeDsp = new RecipeDsp();
+    recipe.ingredients = [new Ingredient];
+    return recipe;
   }
 }

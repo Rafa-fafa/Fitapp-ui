@@ -3,21 +3,21 @@
     <div style="margin:10px; display: grid">
 
       <mat-form-field>
-        <input matInput [formControl]="titleIsRequired" [(ngModel)]="recipe.title" placeholder="Title">
+        <input matInput [formControl]="titleIsRequired" placeholder="Title">
         <mat-error *ngIf="titleIsRequired.hasError('required')">
           Title is required
         </mat-error>
       </mat-form-field>
 
       <mat-form-field>
-        <textarea style="height: 250px; text-align: justify;" matInput [formControl]="descriptionIsRequired" [(ngModel)]="recipe.description" placeholder="Description"></textarea>
+        <textarea style="height: 250px; text-align: justify;" matInput [formControl]="descriptionIsRequired" placeholder="Description"></textarea>
         <mat-error *ngIf="descriptionIsRequired.hasError('required')">
           Description is required
         </mat-error>
       </mat-form-field>
 
       <mat-form-field style="width: 150px">
-        <mat-select style="text-align: center" [formControl]="portionsIsRequired"  [(ngModel)]="recipe.numberOfPortion" placeholder="Portions">
+        <mat-select style="text-align: center" [formControl]="portionsIsRequired"  placeholder="Portions">
           <mat-option *ngFor="let portion of portions" [value]="portion">{{portion}}</mat-option>
         </mat-select>
         <mat-error *ngIf="portionsIsRequired.hasError('pattern')">

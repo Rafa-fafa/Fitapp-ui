@@ -1,23 +1,11 @@
 <app-toolbar></app-toolbar>
 <mat-drawer-container class="example-container">
-  <mat-drawer mode="side" opened>
+  <mat-drawer mode="side" opened style="min-height: 200px">
     <app-side-nav-list></app-side-nav-list>
   </mat-drawer>
   <mat-drawer-content>
-    <mat-grid-list cols="5" rowHeight="50px">
-      <mat-grid-tile [colspan]="3" [rowspan]="10">
-        <app-add-recipe></app-add-recipe>
-      </mat-grid-tile>
-      <mat-grid-tile [colspan]="2" [rowspan]="14">
-        <app-ingredients></app-ingredients>
-      </mat-grid-tile>
-      <mat-grid-tile  [colspan]="3" [rowspan]="6">
-        <app-download-recipe></app-download-recipe>
-        <div class="saveButton">
-          <button mat-raised-button color="primary">Save recipe</button>
-        </div>
-      </mat-grid-tile>
-    </mat-grid-list>
+    <router-outlet></router-outlet>
   </mat-drawer-content>
 </mat-drawer-container>
 
+r

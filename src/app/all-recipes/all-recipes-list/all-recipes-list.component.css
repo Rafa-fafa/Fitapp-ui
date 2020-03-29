@@ -1,0 +1,32 @@
+.example-container {
+  display: grid;
+  margin: 20px;
+  border-radius: 10px;
+}
+
+::ng-deep .cdk-virtual-scroll-content-wrapper{
+  display: contents !important;
+}
+
+
+::ng-deep .mat-expansion-panel-body{
+  display: flex;
+}
+
+.mat-list-item{
+  font-size: 12px;
+  height: auto;
+  white-space: nowrap;
+}
+
+.ingredient-description{
+  width: 65%;
+  margin-right: 3%;
+  text-align: justify;
+  white-space: pre-line;
+}
+
+.mat-expansion-panel-header-description {
+  display: flex;
+  justify-content: flex-end;
+}

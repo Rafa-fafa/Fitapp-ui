@@ -1,10 +1,11 @@
 import {Ingredient} from "./ingredient";
 
 export class RecipeDsp {
-  constructor(
-    public title?:string,
-    public description?:string,
-    public numberOfPortion?: number,
-    public ingredients?: Ingredient[]
-  ) {}
+    public id: number;
+    public title: string;
+    public description: string;
+    public numberOfPortion?: string;
+    public ingredients?: Ingredient[];
+    public favorite: boolean = false;
+    public selected: boolean = false;
 }

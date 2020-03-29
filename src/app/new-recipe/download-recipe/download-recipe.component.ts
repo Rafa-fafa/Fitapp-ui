@@ -19,7 +19,9 @@ export class DownloadRecipeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.newRecipeService.currentRecipe.subscribe(recipe => this.recipe = recipe);
+    this.newRecipeService.newRecipe.subscribe(recipe => {
+      this.recipe = recipe
+    });
   }
 
   downloadRecipe() {

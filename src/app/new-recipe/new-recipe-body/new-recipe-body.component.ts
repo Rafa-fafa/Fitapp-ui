@@ -20,7 +20,10 @@ export class NewRecipeBodyComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.newRecipeService.currentRecipe.subscribe(recipe => this.recipe = recipe);
+    this.newRecipeService.newRecipe.subscribe(recipe => {
+        this.recipe = recipe
+    console.log(this.recipe);
+    });
   }
 
   get portions() {
@@ -31,7 +34,7 @@ export class NewRecipeBodyComponent implements OnInit {
     return portions;
   }
 
-  saveRecipe() {
-    this.newRecipeService.saveRecipe();
-  }
+  // saveRecipe() {
+  //   this.newRecipeService.saveRecipe();
+  // }
 }

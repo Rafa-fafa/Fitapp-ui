@@ -22,8 +22,39 @@ import {MatButtonModule} from "@angular/material/button";
 import {IngredientNewRecipeComponent} from './new-recipe/ingredients/ingredient/ingredient-new-recipe.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
-import { DownloadRecipeComponent } from './new-recipe/download-recipe/download-recipe.component';
+import {DownloadRecipeComponent} from './new-recipe/download-recipe/download-recipe.component';
 import {MatExpansionModule} from "@angular/material/expansion";
+import {NewRecipeComponent} from './new-recipe/new-recipe.component';
+import {AllRecipesComponent} from './all-recipes/all-recipes.component';
+import {Router, RouterModule, Routes} from "@angular/router";
+import {AllRecipesListComponent} from './all-recipes/all-recipes-list/all-recipes-list.component';
+import {RecipeResolverService} from "./resolver/recipe-resolver.service";
+import {ScrollingModule} from "@angular/cdk/scrolling";
+import {MatTableModule} from "@angular/material/table";
+import {ParagraphPipe} from './pipes/paragraph.pipe';
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {SummaryListComponent} from './all-recipes/summary-list/summary-list.component';
+import {HomePageComponent} from './home-page/home-page.component';
+import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
+
+
+const appRoutes: Routes = [
+  {
+    path: '',
+    component: HomePageComponent
+  },
+  {
+    path: 'newRecipe',
+    component: NewRecipeComponent
+  },
+  {
+    path: 'allRecipes',
+    component: AllRecipesComponent,
+    resolve: {allRecipes: RecipeResolverService}
+  }
+];
+
 
 @NgModule({
   declarations: [
@@ -33,7 +64,14 @@ import {MatExpansionModule} from "@angular/material/expansion";
     NewRecipeBodyComponent,
     IngredientsNewRecipeComponent,
     IngredientNewRecipeComponent,
-    DownloadRecipeComponent
+    DownloadRecipeComponent,
+    NewRecipeComponent,
+    AllRecipesComponent,
+    AllRecipesListComponent,
+    ParagraphPipe,
+    SummaryListComponent,
+    HomePageComponent,
+    DeleteDialogComponent
   ],
     imports: [
         BrowserModule,
@@ -53,10 +91,16 @@ import {MatExpansionModule} from "@angular/material/expansion";
         FormsModule,
         HttpClientModule,
         ReactiveFormsModule,
-        MatExpansionModule
+        MatExpansionModule,
+        RouterModule.forRoot(appRoutes, {enableTracing: false}),
+        ScrollingModule,
+        MatTableModule,
+        MatCheckboxModule,
+        MatDialogModule
     ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [RecipeResolverService],
+  bootstrap: [AppComponent],
+  entryComponents: [DeleteDialogComponent]
 })
 export class AppModule {
 }

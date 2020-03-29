@@ -3,10 +3,6 @@
   background-color: white;
 }
 
-.saveButton {
-  position: absolute;
-  right: 20px;
-}
 
 ::ng-deep .mat-grid-tile .mat-figure {
   align-items: flex-start !important;

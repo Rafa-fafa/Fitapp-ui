@@ -15,8 +15,7 @@ export class IngredientsNewRecipeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.newRecipeService.currentRecipe.subscribe(recipe => this.newIngredients = recipe.ingredients);
-    this.newIngredients.push(this.getEmptyIngredient());
+    this.newRecipeService.newRecipe.subscribe(recipe => this.newIngredients = recipe.ingredients);
   }
 
   addNewEmptyIngredient() {

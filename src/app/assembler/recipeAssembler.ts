@@ -5,6 +5,7 @@ export class RecipeAssembler {
 
   public static convertRecipeDto2Dsp(recipeDto): RecipeDsp {
     const recipe = new RecipeDsp();
+    recipe.id = recipeDto.id;
     recipe.title = recipeDto.title;
     recipe.description = recipeDto.description;
     recipe.ingredients = this.convertIngredientsDto2Dsp(recipeDto.ingredients);
@@ -23,4 +24,8 @@ export class RecipeAssembler {
     ingredientDsp.name=ingredient.name;
     return ingredientDsp;
   }
+
+  static convertRecipeListDto2Dsp(recipes: any[]):RecipeDsp[] {
+    return recipes.map(recipe => this.convertRecipeDto2Dsp(recipe))
+  }a
 }

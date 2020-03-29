@@ -1,0 +1,17 @@
+<div *ngIf="summaryList.length>0" class="example-container" [class.mat-elevation-z3]="true">
+  <div>
+    <mat-toolbar-row>
+      <span style="font-weight: bold">Summary list:</span>
+      <span class="example-spacer"></span>
+      <mat-icon class="example-icon" color="primary">shopping_cart</mat-icon>
+    </mat-toolbar-row>
+    <mat-list style="padding-bottom: 15px">
+      <mat-list-item *ngFor="let ingredient of summaryList">
+        {{ingredient.amount}}
+        {{ingredient.unit}}
+        {{ingredient.name}}
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>
+

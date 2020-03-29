@@ -1,0 +1,21 @@
+.mat-list-item{
+  font-size: 14px;
+  height: auto;
+  white-space: nowrap;
+}
+
+.example-container {
+  margin: 20px;
+  border-radius: 10px;
+  max-height: 650px;
+}
+
+.example-icon {
+  padding: 0 14px;
+  font-size: 40px;
+
+}
+
+.example-spacer {
+  flex: 10 auto;
+}
