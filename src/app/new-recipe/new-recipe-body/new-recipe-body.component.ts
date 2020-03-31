@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Ingredient} from "../../model/ingredient";
 import {RecipeDsp} from "../../model/recipeDsp";
 import {NewRecipeService} from "../new-recipe.service";
-import {FormControl, Validators} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-add-recipe',
@@ -11,9 +11,6 @@ import {FormControl, Validators} from "@angular/forms";
 })
 export class NewRecipeBodyComponent implements OnInit {
 
-  titleIsRequired = new FormControl('', [Validators.required]);
-  descriptionIsRequired = new FormControl('', [Validators.required]);
-  portionsIsRequired = new FormControl('', [Validators.pattern("[0-9]+")  ]);
   recipe: RecipeDsp;
 
   constructor(private newRecipeService: NewRecipeService) {
@@ -21,20 +18,7 @@ export class NewRecipeBodyComponent implements OnInit {
 
   ngOnInit() {
     this.newRecipeService.newRecipe.subscribe(recipe => {
-        this.recipe = recipe
-    console.log(this.recipe);
+      this.recipe = recipe;
     });
   }
-
-  get portions() {
-    const portions: any[] = [];
-    for (let i = 1; i < 16; i++) {
-      portions.push(i);
-    }
-    return portions;
-  }
-
-  // saveRecipe() {
-  //   this.newRecipeService.saveRecipe();
-  // }
 }

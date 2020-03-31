@@ -16,8 +16,8 @@
     </div>
     <div style="width: 65%; min-width: 0px; margin-left: 3px; margin-right: 3px">
       <mat-form-field>
-        <input matInput [formControl]="ingredientIsRequired" [(ngModel)]="newIngredient.name" placeholder="Ingredient">
-        <mat-error *ngIf="ingredientIsRequired.hasError('required')">
+        <input matInput [(ngModel)]="newIngredient.name" placeholder="Ingredient" #ingredientName="ngModel" required>
+        <mat-error *ngIf="ingredientName.invalid">
           Ingredient is required
         </mat-error>
       </mat-form-field>

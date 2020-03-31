@@ -9,7 +9,7 @@ export class RecipeAssembler {
     recipe.title = recipeDto.title;
     recipe.description = recipeDto.description;
     recipe.ingredients = this.convertIngredientsDto2Dsp(recipeDto.ingredients);
-    recipe.numberOfPortion = recipeDto.numberOfPortion;
+    recipe.portions = recipeDto.numberOfPortion;
     return recipe;
   }
 
