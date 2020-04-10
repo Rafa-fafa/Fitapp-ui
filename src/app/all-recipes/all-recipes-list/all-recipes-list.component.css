@@ -4,27 +4,32 @@
   border-radius: 10px;
 }
 
-::ng-deep .cdk-virtual-scroll-content-wrapper{
+::ng-deep .cdk-virtual-scroll-content-wrapper {
   display: contents !important;
 }
 
 
-::ng-deep .mat-expansion-panel-body{
+::ng-deep .mat-expansion-panel-body {
   display: flex;
 }
 
-.mat-list-item{
+.mat-list-item {
+  width: 300px;
   font-size: 12px;
   height: auto;
-  white-space: nowrap;
+  /*white-space: nowrap;*/
 }
 
-.ingredient-description{
-  width: 65%;
+.ingredient-description {
+  flex-grow: 1;
   margin-right: 3%;
   text-align: justify;
   white-space: pre-line;
 }
+.text-style{
+  white-space: pre-wrap;
+}
+
 
 .mat-expansion-panel-header-description {
   display: flex;

@@ -6,7 +6,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class ParagraphPipe implements PipeTransform {
 
   transform(value: string): string {
-    return value.replace(new RegExp('\n','g'),'\n\n');
+
+    return value.replace(new RegExp('\\\\n','g'),'\n\n');
   }
 
 }
