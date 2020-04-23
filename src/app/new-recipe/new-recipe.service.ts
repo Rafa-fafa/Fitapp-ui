@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {BehaviorSubject} from "rxjs";
 import {RecipeDsp} from "../model/recipeDsp";
 import {HttpService} from "../rest-client/recipe-backend/http.service";
-import {Ingredient} from "../model/ingredient";
+import {IngredientDsp} from "../model/ingredientDsp";
 
 @Injectable({
   providedIn: 'root'
@@ -15,13 +15,13 @@ export class NewRecipeService {
   constructor() {
   }
 
-  changeRecipe(recipe: RecipeDsp) {
+  setCurrentRecipe(recipe: RecipeDsp) {
     this.recipeSource.next(recipe);
   }
 
   getEmptyRecipe(): RecipeDsp {
     let recipe: RecipeDsp = new RecipeDsp();
-    recipe.ingredients = [new Ingredient];
+    recipe.ingredients = [new IngredientDsp];
     return recipe;
   }
 }

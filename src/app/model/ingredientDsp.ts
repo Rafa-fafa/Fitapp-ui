@@ -1,4 +1,4 @@
-export class Ingredient {
+export class IngredientDsp {
   constructor(
     public amount?: number,
     public unit?: string,

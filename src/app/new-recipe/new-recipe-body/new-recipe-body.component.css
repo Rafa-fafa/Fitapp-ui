@@ -14,3 +14,8 @@
   margin-bottom: 10px;
 }
 
+.recipeDescription{
+  height: 250px;
+  text-align: justify;
+  white-space: pre-line;
+}

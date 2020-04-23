@@ -10,7 +10,9 @@
       </mat-form-field>
 
       <mat-form-field>
-        <textarea style="height: 250px; text-align: justify;" matInput name="description" [(ngModel)]="recipe.description" placeholder="Description" #descripption="ngModel" required></textarea>
+        <textarea class="recipeDescription" matInput name="description" [ngModel]="recipe.description | paragraph"
+                  (ngModelChange)="recipe.description=$event"
+                  placeholder="Description" #descripption="ngModel" required></textarea>
         <mat-error *ngIf="descripption.invalid">
           Description is required
         </mat-error>

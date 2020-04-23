@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Ingredient} from "../../model/ingredient";
+import {IngredientDsp} from "../../model/ingredientDsp";
 import {NewRecipeService} from "../new-recipe.service";
 
 @Component({
@@ -9,7 +9,7 @@ import {NewRecipeService} from "../new-recipe.service";
 })
 export class IngredientsNewRecipeComponent implements OnInit {
 
-  newIngredients: Ingredient[] = [];
+  newIngredients: IngredientDsp[] = [];
 
   constructor(private newRecipeService: NewRecipeService) {
   }
@@ -25,7 +25,7 @@ export class IngredientsNewRecipeComponent implements OnInit {
   }
 
   private getEmptyIngredient() {
-    return new Ingredient(null, null, null);
+    return new IngredientDsp(null, null, null);
   }
 
   private isLastIngredientNotEmpty(): boolean {

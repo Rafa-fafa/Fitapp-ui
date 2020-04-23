@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Ingredient} from "../../../model/ingredient";
+import {IngredientDsp} from "../../../model/ingredientDsp";
 import {FormControl, Validators} from "@angular/forms";
 
 @Component({
@@ -11,7 +11,7 @@ export class IngredientNewRecipeComponent implements OnInit {
 
   units: string[] = ['ml', 'kg', 'g'];
   @Input()
-  newIngredient: Ingredient;
+  newIngredient: IngredientDsp;
 
   constructor() {
   }
