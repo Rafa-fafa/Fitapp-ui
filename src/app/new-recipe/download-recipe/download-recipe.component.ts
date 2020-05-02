@@ -25,7 +25,7 @@ export class DownloadRecipeComponent implements OnInit {
     this.newRecipeService.newRecipe.subscribe(recipe => {
       this.recipe = recipe
     });
-    this.eventHandler.savedNewRecipe.subscribe(() => this.url = '');
+    this.eventHandler.savedNewRecipeEvent.subscribe(() => this.url = '');
   }
 
   downloadRecipe() {

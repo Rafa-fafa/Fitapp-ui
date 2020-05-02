@@ -9,7 +9,6 @@ import {FormControl, Validators} from "@angular/forms";
 })
 export class IngredientNewRecipeComponent implements OnInit {
 
-  units: string[] = ['ml', 'kg', 'g'];
   @Input()
   newIngredient: IngredientDsp;
 
@@ -19,7 +18,4 @@ export class IngredientNewRecipeComponent implements OnInit {
   ngOnInit() {
   }
 
-  ingredientIsRequired = new FormControl('', [
-    Validators.required,
-  ]);
 }

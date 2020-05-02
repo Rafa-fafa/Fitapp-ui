@@ -7,11 +7,8 @@
     </div>
     <div style="max-width: 45px; margin-left: 3px; margin-right: 3px">
       <mat-form-field [floatLabel]="'never'">
-        <mat-select style="text-align: center" placeholder="Unit" [(ngModel)]="newIngredient.unit">
-          <mat-option *ngFor="let unit of units" [value]="unit">
-            {{unit}}
-          </mat-option>
-        </mat-select>
+        <input style="text-align: center" matInput [(ngModel)]="newIngredient.unit" placeholder="Unit"
+               [value]="newIngredient.unit">
       </mat-form-field>
     </div>
     <div style="width: 65%; min-width: 0px; margin-left: 3px; margin-right: 3px">

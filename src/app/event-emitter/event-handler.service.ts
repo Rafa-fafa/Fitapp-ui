@@ -7,5 +7,5 @@ import {RecipeDsp} from "../model/recipeDsp";
 export class EventHandlerService {
   public favoriteRecipeEvent: EventEmitter<RecipeDsp> =  new EventEmitter<RecipeDsp>();
   public selectedRecipeEvent: EventEmitter<RecipeDsp> =  new EventEmitter<RecipeDsp>();
-  public savedNewRecipe: EventEmitter<any> =  new EventEmitter();
+  public savedNewRecipeEvent: EventEmitter<any> =  new EventEmitter();
 }

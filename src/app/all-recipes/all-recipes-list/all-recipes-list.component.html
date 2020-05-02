@@ -1,49 +1,46 @@
 <div class="example-container" [class.mat-elevation-z3]="true">
   <div style="margin:10px; display: grid">
     <mat-accordion>
-      <button style="margin-left: 30px" (click)="toggleSelected()" mat-icon-button color="primary">
-        <mat-icon>{{onlySelected ? 'shopping_cart' : 'add_shopping_cart'}}</mat-icon>
-      </button>
-      <button (click)="toggleFavorites()" mat-icon-button color="primary">
-        <mat-icon>{{onlyFavorites ? 'favorite' : 'favorite_border'}}</mat-icon>
-      </button>
       <cdk-virtual-scroll-viewport itemSize="50" style="height: 700px ">
         <mat-expansion-panel *cdkVirtualFor="let recipe of allRecipes" style="margin: 5px">
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                <button (click)=addToSelected(recipe,$event) mat-icon-button color="primary">
-                  <mat-icon>{{recipe.selected ? 'shopping_cart' : 'add_shopping_cart'}}</mat-icon>
-                </button>
-                <button (click)=addToFavorites(recipe,$event) mat-icon-button color="primary">
-                  <mat-icon>{{recipe.favorite ? 'favorite' : 'favorite_border'}}</mat-icon>
-                </button>
-                <div style="display: table; height: 39px; overflow: hidden;">
-                  <div style="display: table-cell; vertical-align: middle;">
-                    <div>
-                      {{recipe.title}}
-                    </div>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <button (click)=addToSelected(recipe,$event) mat-icon-button color="primary">
+                <mat-icon>{{recipe.selected ? 'shopping_cart' : 'add_shopping_cart'}}</mat-icon>
+              </button>
+              <button (click)=addToFavorites(recipe,$event) mat-icon-button color="primary">
+                <mat-icon>{{recipe.favorite ? 'favorite' : 'favorite_border'}}</mat-icon>
+              </button>
+              <div style="display: table; height: 39px; overflow: hidden;">
+                <div style="display: table-cell; vertical-align: middle;">
+                  <div>
+                    {{recipe.title}}
                   </div>
                 </div>
-              </mat-panel-title>
-              <mat-panel-description>
-                <button (click)=deleteRecipe(recipe,$event)  mat-icon-button color="primary">
-                  <mat-icon>delete_outline</mat-icon>
-                </button>
-              </mat-panel-description>
-            </mat-expansion-panel-header>
-            <div style="white-space: pre-line" class="ingredient-description" >
-              {{recipe.description | paragraph}}
+              </div>
+            </mat-panel-title>
+            <mat-panel-description>
+              <button (click)=deleteRecipe(recipe,$event) mat-icon-button color="primary">
+                <mat-icon>delete_outline</mat-icon>
+              </button>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div style="white-space: pre-line" class="ingredient-description">
+            {{recipe.description | paragraph}}
+          </div>
+          <mat-divider [vertical]="true"></mat-divider>
+          <div>
+            <div style = "padding-left: 16px">
+              {{recipe.portions}}
             </div>
-            <mat-divider [vertical]="true"></mat-divider>
-            <div>
-              <mat-list>
-                <mat-list-item *ngFor="let ingredient of recipe.ingredients">-
-                  {{ingredient.amount}}
-                  {{ingredient.unit}}
-                  {{ingredient.name}}
-                </mat-list-item>
-              </mat-list>
-            </div>
+            <mat-list>
+              <mat-list-item *ngFor="let ingredient of recipe.ingredients">-
+                {{ingredient.amount}}
+                {{ingredient.unit}}
+                {{ingredient.name}}
+              </mat-list-item>
+            </mat-list>
+          </div>
 
         </mat-expansion-panel>
       </cdk-virtual-scroll-viewport>

@@ -3,6 +3,7 @@ import {HttpService} from "../rest-client/recipe-backend/http.service";
 import {RecipeDsp} from "../model/recipeDsp";
 import {NewRecipeService} from "./new-recipe.service";
 import {EventHandlerService} from "../event-emitter/event-handler.service";
+import {IngredientDsp} from "../model/ingredientDsp";
 
 @Component({
   selector: 'app-new-recipe',
@@ -23,7 +24,14 @@ export class NewRecipeComponent implements OnInit {
 
   saveRecipe() {
     this.httpService.saveRecipe(this.recipe).subscribe();
-    this.newRecipeService.setCurrentRecipe(new RecipeDsp());
-    this.eventHandler.savedNewRecipe.emit();
+    this.newRecipeService.setCurrentRecipe(this.getEmptyRecipe());
+    this.eventHandler.savedNewRecipeEvent.emit();
+  }
+
+
+  private getEmptyRecipe() {
+    let recipe: RecipeDsp =  new RecipeDsp();
+    recipe.ingredients = [new IngredientDsp()];
+    return recipe;
   }
 }
