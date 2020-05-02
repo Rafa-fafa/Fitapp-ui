@@ -1,6 +1,5 @@
 import {RecipeDsp} from "../model/recipeDsp";
 import {IngredientDsp} from "../model/ingredientDsp";
-import {SubDescriptionDsp} from "../model/sub-description-dsp";
 
 export class RecipeAssembler {
 
@@ -8,23 +7,13 @@ export class RecipeAssembler {
     const recipe = new RecipeDsp();
     recipe.id = recipeDto.id;
     recipe.title = recipeDto.title;
-    recipe.subDescriptions = this.convertSubDescriptions(recipeDto.subDescriptions);
+    recipe.description = recipeDto.description;
     recipe.ingredients = this.convertIngredientsDto2Dsp(recipeDto.ingredients);
-    recipe.portions = recipeDto.numberOfPortion;
+    recipe.portions = recipeDto.portions;
     recipe.sourceUrl = recipeDto.sourceUrl;
     return recipe;
   }
 
-  private static convertSubDescriptions(subDescriptions: any[]): SubDescriptionDsp[] {
-    return subDescriptions.map(subDescription => this.convertSubDescription(subDescription));
-  }
-
-  private static convertSubDescription(subDescription: any) {
-    const subDescriptionDsp = new SubDescriptionDsp();
-    subDescriptionDsp.subDescriptionTitle = subDescription.subDescriptionTitle;
-    subDescriptionDsp.description = subDescription.description;
-    return subDescriptionDsp;
-  }
 
   private static convertIngredientsDto2Dsp(ingredients: any) {
     return ingredients.map(ing => RecipeAssembler.convertIngredientDto2Dsp(ing))
