@@ -37,6 +37,7 @@ import {SummaryListComponent} from './all-recipes/summary-list/summary-list.comp
 import {HomePageComponent} from './home-page/home-page.component';
 import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
 
 
 const appRoutes: Routes = [
@@ -71,7 +72,8 @@ const appRoutes: Routes = [
     ParagraphPipe,
     SummaryListComponent,
     HomePageComponent,
-    DeleteDialogComponent
+    DeleteDialogComponent,
+    ErrorDialogComponent
   ],
     imports: [
         BrowserModule,
@@ -100,7 +102,7 @@ const appRoutes: Routes = [
     ],
   providers: [RecipeResolverService],
   bootstrap: [AppComponent],
-  entryComponents: [DeleteDialogComponent]
+  entryComponents: [DeleteDialogComponent, ErrorDialogComponent]
 })
 export class AppModule {
 }

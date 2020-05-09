@@ -61,7 +61,6 @@ export class AllRecipesListComponent implements OnInit {
       if (result) {
         this.allRecipesService.deleteRecipe(recipe.id);
       }
-      console.log(result);
     });
 
     $event.stopPropagation();
