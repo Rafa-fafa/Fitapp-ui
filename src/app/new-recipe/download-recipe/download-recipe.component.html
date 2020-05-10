@@ -1,8 +1,14 @@
 <mat-accordion class="example-container" [class.mat-elevation-z3]="true">
-  <mat-expansion-panel style="border-radius: 10px">
+  <mat-expansion-panel style="border-radius: 10px" #secondPanel>
     <mat-expansion-panel-header>
       <mat-panel-title>
         Download external recipe
+
+        <img style="height: 20px; margin-left: 10px" src="assets/info_icon.png" alt="logo"
+             (click)="pasteSampleRecipeUrl($event)"
+             matTooltip="Two portals are supported: kwestiasmaku.com and allrecipes.com. Click on the icon to paste a sample recipe."
+             matTooltipPosition="above"
+        >
       </mat-panel-title>
     </mat-expansion-panel-header>
 

@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {HttpService} from "../../rest-client/recipe-backend/http.service";
 import {NewRecipeService} from "../new-recipe.service";
 import {RecipeDsp} from "../../model/recipeDsp";
 import {RecipeAssembler} from "../../assembler/recipeAssembler";
 import {EventHandlerService} from "../../event-emitter/event-handler.service";
+import {MatExpansionPanel} from "@angular/material/expansion";
 
 @Component({
   selector: 'app-download-recipe',
@@ -12,8 +13,11 @@ import {EventHandlerService} from "../../event-emitter/event-handler.service";
 })
 export class DownloadRecipeComponent implements OnInit {
 
+  @ViewChild(MatExpansionPanel, {static: false}) secondPanel: MatExpansionPanel;
+
   private url: string;
   private recipe: RecipeDsp;
+  private SAMPLE_RECIPE_URL: any = 'https://www.kwestiasmaku.com/przepis/szarlotka-z-budyniem';
 
   constructor(private httpService: HttpService,
               private newRecipeService: NewRecipeService,
@@ -32,5 +36,11 @@ export class DownloadRecipeComponent implements OnInit {
     this.httpService.downloadRecipe(this.url).subscribe(recipe => {
       this.newRecipeService.setCurrentRecipe(RecipeAssembler.convertRecipeDto2Dsp(recipe))
     })
+  }
+
+  pasteSampleRecipeUrl($event: MouseEvent) {
+    this.secondPanel.open();
+    this.url = this.SAMPLE_RECIPE_URL;
+    $event.stopPropagation();
   }
 }

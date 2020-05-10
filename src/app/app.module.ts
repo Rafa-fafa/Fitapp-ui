@@ -38,6 +38,7 @@ import {HomePageComponent} from './home-page/home-page.component';
 import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 
 const appRoutes: Routes = [
@@ -75,31 +76,32 @@ const appRoutes: Routes = [
     DeleteDialogComponent,
     ErrorDialogComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatSliderModule,
-        MatToolbarModule,
-        MatIconModule,
-        MatSidenavModule,
-        MatListModule,
-        MatFormFieldModule,
-        MatOptionModule,
-        MatSelectModule,
-        MatInputModule,
-        MatGridListModule,
-        MatButtonModule,
-        FormsModule,
-        HttpClientModule,
-        ReactiveFormsModule,
-        MatExpansionModule,
-        RouterModule.forRoot(appRoutes, {enableTracing: false}),
-        ScrollingModule,
-        MatTableModule,
-        MatCheckboxModule,
-        MatDialogModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatSliderModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatListModule,
+    MatFormFieldModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatInputModule,
+    MatGridListModule,
+    MatButtonModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    MatExpansionModule,
+    RouterModule.forRoot(appRoutes, {enableTracing: false}),
+    ScrollingModule,
+    MatTableModule,
+    MatCheckboxModule,
+    MatDialogModule,
+    MatTooltipModule
+  ],
   providers: [RecipeResolverService],
   bootstrap: [AppComponent],
   entryComponents: [DeleteDialogComponent, ErrorDialogComponent]
